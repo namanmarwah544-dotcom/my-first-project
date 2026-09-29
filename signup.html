@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>J.K. Event Planner</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+		<header>
+		<div class="logo">
+			<div class="circle-content">
+            <span class="initials">JK</span>
+
+            <div class="logo-line">
+              <span></span>
+              <span class="star">❖</span>
+              <span></span>
+            </div>
+			  <h2 class="brand-name">EVENT PLANNER</h2>
+            <p class="tagline">WE PLAN, YOU ENJOY.</p>
+          </div>
+        </div>
+		<nav>
+		<ul>
+			
+			
+			<li><a href="home.html"
+				  >Home</a></li>
+			<li> <a href="gallery.html"
+		>Gallery</a></li>
+			<li><a href="about.html"
+				   >About Us</a></li>
+			<li><a href="service.html"
+				 >Packages</a></li>
+			<li><a href="contact.html"
+				  >Contact Us</a></li>
+			
+			<li><a href="feedback.html"
+				   >Feedback</a></li>
+			<li><a href="login.html"
+				   class="active">Log in/Sign up</a></li>
+			      </ul>
+			</nav>
+	</header><br>
+	 <div class="main-card-container">
+        
+        <div class="heading-area">
+            <h1 id="auto-type-text"></h1>
+        </div>
+
+        <div class="inner-form-box">
+            <h2>Create Your Account</h2><br>
+
+            <form  onsubmit="handleSignup(event)">
+                <div class="input-group">
+                    <label>Your Name:</label>
+                    <input type="text" id="fullName" name="name" placeholder="Enter your full name" required>
+                </div><br>
+
+                <div class="input-group">
+                    <label>Your Phone:</label>
+                    <input type="tel" id="phoneNumber" name="tel" autocomplete="tel" placeholder="Enter phone number" required>
+                </div><br>
+
+                <div class="input-group">
+                    <label>Your Email:</label>
+                    <input type="email" id="signUpEmail" name="email" autocomplete="email" placeholder="Enter your email" required>
+                </div><br>
+
+                <div class="input-group">
+                    <label>Create Password:</label>
+                    <input type="password" id="signUpPassword" name="password" autocomplete="new-password"placeholder="Create a password" required>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="gold-btn">Enter</button>
+                </div>
+            </form>
+
+            <div class="switch-link">
+                Already have an account? <a href="login.html">Log In Here</a>
+            </div>
+        </div>
+
+    </div>
+	<script>
+function handleSignup(event) {
+    // Form ka default action turant rokna nahi hai taaki browser password detect kare
+	event.preventDefault();
+    const fullName = document.getElementById("fullName").value.trim();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const email = document.getElementById("signUpEmail").value.trim();
+    const password = document.getElementById("signUpPassword").value.trim();
+
+    // 1. Check karna ki email pehle se hai ya nahi
+    if (localStorage.getItem(email)) {
+        event.preventDefault();
+        alert("This Email is already registered! Please Login.");
+        window.location.href = "login.html";
+        return;
+    }
+
+    // 2. Data localStorage me save karna
+    const userObj = {
+        fullName: fullName,
+        phone: phoneNumber,
+        email: email,
+        password: password
+    };
+
+    localStorage.setItem(email, JSON.stringify(userObj));
+
+   
+    setTimeout(function() {
+        alert("Your Account Has Been Successfully Created!");
+        window.location.href = "index.html";
+    }, 100); // 0.1 second ka chota sa delay
+}
+	</script>
+</body>
+</html>
