@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>J.K. Event Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="landing-page">
+    <header>
+      <nav class="top-nav">
+        <div class="hamburger" id="hamburger-btn" onClick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="side-menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Packages</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="login.html">Log in/Sign up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+
+    <section class="hero-container">
+      <img
+        src="wedding decor.jpg"
+        alt="Wedding Decor Background"
+        class="hero-bg-img"
+      />
+
+      <div class="image-overlay"></div>
+
+      <div class="hero-content">
+        <h1 id="line1-typewriter" class="welcome-title"></h1>
+        <br />
+        <h1 id="line2-typewriter" class="designer-title"></h1>
+        <br />
+
+        <a href="home.html" class="explore-btn">Explore Website &nbsp;→</a>
+      </div>
+    </section>
+    <br />
+    <script>
+      function toggleMenu() {
+        const sideMenu = document.getElementById("side-menu");
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+
+        // Open/Close toggle class
+        sideMenu.classList.toggle("active");
+        hamburgerBtn.classList.toggle("open");
+      }
+    </script>
+    <script>
+      // 👑 Two-Line Auto-Typewriter Effect
+      const line1Element = document.getElementById("line1-typewriter");
+      const line2Element = document.getElementById("line2-typewriter");
+
+      const textLine1 = "WELCOME TO";
+      const textLine2 = "J.K. EVENT PLANNER";
+
+      let index1 = 0;
+      let index2 = 0;
+
+      // Pehle Line 1 ("WELCOME TO") type hogi
+      function typeLine1() {
+        if (index1 < textLine1.length) {
+          line1Element.innerHTML += textLine1.charAt(index1);
+          index1++;
+          setTimeout(typeLine1, 100); // Speed
+        } else {
+          // Line 1 poori hone ke baad Line 2 ("J.K. EVENT PLANNERS") shuru hogi
+          setTimeout(typeLine2, 300);
+        }
+      }
+
+      // Uske baad Line 2 type hogi
+      function typeLine2() {
+        if (index1 < textLine2.length) {
+          line2Element.innerHTML += textLine2.charAt(index2);
+          index2++;
+          setTimeout(typeLine2, 100);
+        }
+      }
+
+      // Page Load hone ke 600ms baad typing shuru hogi
+      window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeLine1, 600);
+      });
+
+      window.addEventListener("scroll", () => {
+        const zoomImg = document.getElementById("zoomImage");
+        const scrollPos = window.scrollY;
+
+        if (scrollPos > 200) {
+          zoomImg.style.transform = "scale(1.15)";
+        } else {
+          zoomImg.style.transform = "scale(1)";
+        }
+      });
+    </script>
+  </body>
+</html>

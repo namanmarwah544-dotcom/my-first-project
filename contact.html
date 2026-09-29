@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>J.K. Event Planner</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<div class="circle-content">
+            <span class="initials">JK</span>
+
+            <div class="logo-line">
+              <span></span>
+              <span class="star">❖</span>
+              <span></span>
+            </div>
+			  <h2 class="brand-name">EVENT PLANNER</h2>
+            <p class="tagline">WE PLAN, YOU ENJOY.</p>
+          </div>
+        </div>
+		<nav>
+		<ul>
+			
+			
+			<li><a href="home.html"
+			>Home</a></li>
+			<li> <a href="gallery.html"
+			>Gallery</a></li>
+			<li><a href="about.html"
+				  >About Us</a></li>
+			<li><a href="service.html"
+				  >Packages</a></li>
+			<li><a href="contact.html"
+				   class="active">Contact Us</a></li>
+		
+			<li><a href="feedback.html"
+			>Feedback</a></li>
+			<li><a href="login.html"
+				  >Log in/Sign up</a></li>
+			      </ul>
+			</nav>
+	</header>
+	<main class="main-layout">
+		<section class="royal-box">
+			<h1>CONNECT WITH US:</h1><br>
+			<div class="contact-details">
+		Email= <a href="mailto:namanmarwah544@gmail.com">namanmarwah544@gmail.com</a><br><br>
+		Whatsapp= <a href="https://wa.me/918960017422" target="_blank" class="whatsapp-btn">+91-8960017422</a><br><br>
+		Instagram= <a href="https://www.instagram.com/mr.punjabi_04?igsh=dzY1emh4YW03dHp6" target="_blank">@mr.punjabi_04</a><br><br></div>
+				</section><br>
+			<section class="contact-sub-heading">
+				<h2>Start Blueprinting Your Grand Event</h2><br>
+				  <div class="contact-form-block">
+		<form onSubmit="handleContactInquiry(event)">
+			<div class="form-group">
+			<label for="username">Your name:</label>
+			<input type="text"
+				   id="username"
+				   placeholder="Enter your name:"
+				   required >
+			</div><br>
+					  <div class="form-group">
+			<label for="username">Your Email:</label>
+			<input type="email"
+				   id="useremail"
+				   placeholder="Enter your email:"
+				   required >
+					  </div><br>
+					  <div class="form-group">
+						  <label for="select event">Select your event:</label>
+						  <select id="event-select"
+								  required>
+							  <option value="disabled selected">-- Choose your function tier --</option>
+							  <option value="wedding">Full wedding days</option>
+							  <option value="engagement">Engagement, Roka, pre-wedding shoot</option>
+							  <option value="Destination">Multi-Day Destination Wedding &amp; option 1 and 2 Both</option>
+						  </select>
+					  </div><br>
+					  <div class="form-group">
+			<label for="userdetails">Details:</label>
+			<textarea  id="userdetails" rows="5"
+					  placeholder="Write your requirements here...."
+					  required ></textarea>
+						  </div><br>
+					  <div class="button-container">
+			<button type="Submit"
+					class="gold-btn">Submit</button></div>
+					  </form>
+				</div>
+		 </section>
+		
+	
+	</main><br><br>
+	
+	
+
+	
+	<footer>
+	<p class="footer-box">© 2026 J.K. Event Planners | All Rights Reserved </p>
+	
+	</footer>
+	 <script>
+        
+        const textElement = document.getElementById("auto-type-text");
+        const companyName = "J.K. EVENT PLANNERS";
+        let charIndex = 0;
+
+        function typeEffect() {
+            if (charIndex < companyName.length) {
+                textElement.innerHTML += companyName.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 150);
+            } else {
+                setTimeout(() => {
+                    textElement.innerHTML = "";
+                    charIndex = 0;
+                    typeEffect();
+                }, 2000);
+            }
+        }
+        window.onload = typeEffect;
+
+     
+        function handleContactInquiry(event) {
+            event.preventDefault(); 
+            
+          
+            alert("Your Form has been submitted successfully!"); 
+            
+          
+            window.location.href = "feedback.html"; 
+        }
+    </script>
+	
+</body>
+</html>

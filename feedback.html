@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>J.K. Event Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+		  <div class="circle-content">
+            <span class="initials">JK</span>
+
+            <div class="logo-line">
+              <span></span>
+              <span class="star">❖</span>
+              <span></span>
+            </div>
+			  <h2 class="brand-name">EVENT PLANNER</h2>
+            <p class="tagline">WE PLAN, YOU ENJOY.</p>
+          </div>
+        </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Packages</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+
+          <li><a href="feedback.html" class="active">Feedback</a></li>
+          <li><a href="login.html">Log in/Sign up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+
+    <div class="main-card-container">
+      <div class="heading-area">
+        <h1 id="auto-type-text"></h1>
+      </div>
+
+      <div class="inner-form-box">
+        <h2>Feedback &amp; Rating</h2>
+
+        <form onsubmit="handleFeedbackSubmit(event)">
+          <div class="input-group">
+            <label>Your Name:</label>
+            <input type="text" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="input-group">
+            <label>Select Event Type:</label>
+            <select required>
+              <option value="" disabled selected>
+                -- Choose Function Tier --
+              </option>
+              <option value="Royal Wedding">Royal Wedding</option>
+              <option value="Haldi / Mehendi Ceremony">
+                Haldi / Mehendi Ceremony
+              </option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Corporate Seminar">Corporate Seminar</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Rating:</label>
+            <select required>
+              <option value="5">⭐⭐⭐⭐⭐ (5/5 Exceptional)</option>
+              <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
+              <option value="3">⭐⭐⭐ (3/5 Average)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Your Review / Experience:</label>
+            <textarea
+              rows="4"
+              placeholder="Write your requirements or feedback here..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="gold-btn">Submit Feedback</button>
+          </div>
+        </form>
+      </div>
+      <br />
+
+      <div class="reviews-display-area">
+        <h2 class="reviews-heading">What Our Clients Say</h2>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <h3>Amit Sharma</h3>
+              <span class="event-tag">Royal Wedding</span>
+            </div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              "J.K. Event Planners made our wedding stage decoration look like a
+              royal palace! Highly professional team."
+            </p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <h3>Priya Kapoor</h3>
+              <span class="event-tag">Haldi Ceremony</span>
+            </div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              "Best event planners in town. The yellow-gold flower setup for
+              Haldi was flawless!"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="switch-link">
+        <a href="home.html">← Back to Home Page</a>
+      </div>
+    </div>
+
+    <script>
+      const textElement = document.getElementById("auto-type-text");
+      const companyName = "J.K. EVENT PLANNERS";
+      let charIndex = 0;
+
+      function typeEffect() {
+        if (charIndex < companyName.length) {
+          textElement.innerHTML += companyName.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, 150);
+        } else {
+          setTimeout(() => {
+            textElement.innerHTML = "";
+            charIndex = 0;
+            typeEffect();
+          }, 2000);
+        }
+      }
+      window.onload = typeEffect;
+
+      function handleFeedbackSubmit(event) {
+        event.preventDefault();
+
+        alert(
+          "Your feedback has been successfully submitted! Thank you for your review.",
+        );
+
+        window.location.href = "login.html";
+      }
+    </script>
+    <br /><br />
+    <footer>
+      <p class="footer-box">© 2026 J.K. Event Planners | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

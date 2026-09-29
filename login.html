@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>J.K. Event Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+		  <div class="circle-content">
+            <span class="initials">JK</span>
+
+            <div class="logo-line">
+              <span></span>
+              <span class="star">❖</span>
+              <span></span>
+            </div>
+			  <h2 class="brand-name">EVENT PLANNER</h2>
+            <p class="tagline">WE PLAN, YOU ENJOY.</p>
+          </div>
+        </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Packages</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="login.html" class="active">Log in/Sign up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+
+    <div class="main-card-container">
+      <div class="heading-area">
+        <h1 id="auto-type-text"></h1>
+      </div>
+
+      <div class="inner-form-box">
+        <img src="user logo.svg" alt="logo" class="user-icon" />
+        <h2>Log In</h2>
+        <br />
+
+        <form onsubmit="handleLogin(event)">
+          <div class="input-group">
+            <label>Your Email:</label>
+            <input
+              type="email"
+              id="logInEmail"
+              name="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <br />
+
+          <div class="input-group">
+            <label>Your Password:</label>
+            <input
+              type="password"
+              id="logInPassword"
+              name="password"
+              autocomplete="current-password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="gold-btn">Enter</button>
+          </div>
+        </form>
+
+        <div class="switch-link">
+          Don't have an account?
+          <a href="signup.html">Create Account(Sign Up)</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      function handleLogin(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("logInEmail").value.trim();
+        const password = document.getElementById("logInPassword").value.trim();
+
+        // LocalStorage se saved user data nikalna
+        const savedUser = localStorage.getItem(email);
+
+        if (savedUser) {
+          const userObj = JSON.parse(savedUser);
+
+          // Password Check Condition
+          if (userObj.password === password) {
+            alert("Welcome Back, " + userObj.fullName + "!");
+            window.location.href = "index.html"; // Sahi password par Index Page par bheje
+          } else {
+            // GALAT PASSWORD PAR YEH POP-UP AAYEGA:
+            alert("Invalid Password! Please try again.");
+          }
+        } else {
+          // Agar user register nahi hua hai / email match nahi hua
+          alert("Account not found! Please check your email or signup first.");
+        }
+      }
+    </script>
+    <br /><br />
+    <footer>
+      <p class="footer-box">© 2026 J.K. Event Planners | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
